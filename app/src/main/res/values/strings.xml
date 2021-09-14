@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Weather Forecast App</string>
+    <string name="city_name_label">City Name</string>
+    <string name="lookup_label">Lookup</string>
+    <string name="clouds_label">Clouds</string>
+    <string name="weather_details_feelslike">Feels like: %.2f</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.weatherforecastapp.presentation.feature.weatherhome.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.weatherforecastapp.presentation.feature.weatherlist.ui.WeatherFragment"
+        android:label="WeatherFragment" >
+        <action
+            android:id="@+id/action_weatherFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
+        <argument
+            android:name="weatherList"
+            app:argType="com.weatherforecastapp.domain.models.WeatherView[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.weatherforecastapp.presentation.feature.weatherdetails.ui.WeatherDetailFragment"
+        android:label="WeatherDetailFragment" >
+        <argument
+            android:name="weather"
+            app:argType="com.weatherforecastapp.domain.models.WeatherView" />
+    </fragment>
+</navigation>
