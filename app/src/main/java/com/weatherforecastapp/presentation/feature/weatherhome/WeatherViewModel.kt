@@ -27,6 +27,7 @@ class WeatherViewModel @Inject constructor(
 
                 val weatherList = response?.list?.map { it.mapToDomain(response.city.name) }
                 _data.postValue(WeatherViewState.Success(weatherList))
+
             } catch (e: Exception) {
                 _data.postValue(WeatherViewState.Error(e.toString()))
             }

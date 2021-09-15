@@ -7,9 +7,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class WeatherServer(
-    @SerializedName(WeatherApiConstants.KEY_REQUEST_CODE) val id: String,
-    @SerializedName(WeatherApiConstants.KEY_MESSAGE) val message: Long?,
-    @SerializedName(WeatherApiConstants.KEY_CITIES_AROUND_NUMBER) val aroundMessage: Long?,
-    @SerializedName(WeatherApiConstants.KEY_LIST) val list: List<ListServer>?,
-    @SerializedName(WeatherApiConstants.KEY_CITY) val city: CityServer,
+    @SerializedName(WeatherApiConstants.KEY_REQUEST_CODE) val id: String = "",
+    @SerializedName(WeatherApiConstants.KEY_MESSAGE) val message: Long?= null,
+    @SerializedName(WeatherApiConstants.KEY_CITIES_AROUND_NUMBER) val aroundMessage: Long?= null,
+    @SerializedName(WeatherApiConstants.KEY_LIST) val list: List<ListServer>? = emptyList(),
+    @SerializedName(WeatherApiConstants.KEY_CITY) val city: CityServer = CityServer(),
 ): Parcelable
