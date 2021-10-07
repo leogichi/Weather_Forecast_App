@@ -1,4 +1,4 @@
-package com.weatherforecastapp.presentation.feature.weatherhome
+package com.weatherforecastapp.presentation.feature.weatherhome.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,12 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.weatherforecastapp.domain.mappers.mapToDomain
 import com.weatherforecastapp.domain.repositories.WeatherRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.weatherforecastapp.presentation.feature.weatherhome.WeatherViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 class WeatherViewModel @Inject constructor(
     private val repository: WeatherRepository
 ) : ViewModel() {

@@ -1,7 +1,6 @@
 package com.weatherforecastapp.presentation.feature.weatherhome
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.constraintlayout.motion.utils.ViewState
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.MockitoKotlinException
 import com.nhaarman.mockitokotlin2.any
@@ -9,6 +8,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.weatherforecastapp.data.remote.models.*
 import com.weatherforecastapp.domain.repositories.WeatherRepository
+import com.weatherforecastapp.presentation.feature.weatherhome.viewmodel.WeatherViewModel
 import com.weatherforecastapp.utils.getOrAwaitValueTest
 import kotlinx.coroutines.runBlocking
 import org.junit.Rule

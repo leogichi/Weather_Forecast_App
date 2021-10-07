@@ -7,24 +7,36 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.weatherforecastapp.R
+import com.weatherforecastapp.WeatherForecastApp
+import com.weatherforecastapp.app.ApplicationComponent
 import com.weatherforecastapp.databinding.FragmentHomeBinding
-import com.weatherforecastapp.presentation.feature.weatherhome.WeatherViewModel
+import com.weatherforecastapp.presentation.feature.weatherhome.viewmodel.WeatherViewModel
 import com.weatherforecastapp.presentation.feature.weatherhome.WeatherViewState
-import dagger.hilt.android.AndroidEntryPoint
+import com.weatherforecastapp.presentation.feature.weatherhome.viewmodel.ViewModelFactory
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    val viewModel by viewModels<WeatherViewModel>()
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        WeatherForecastApp.getComponent().inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         binding = FragmentHomeBinding.inflate(inflater)
+
 
         return binding.root
 
@@ -32,6 +44,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val viewModel = ViewModelProvider(this, viewModelFactory)[WeatherViewModel::class.java]
 
         binding.btnLookUp.setOnClickListener {
             viewModel.getWeather(binding.etCityName.text.toString())
